@@ -42,7 +42,7 @@
 
 	.link {
 		text-decoration: none;
-		font-size: 20px;
+		font-size: 15px;
 	}
 
 </style>

@@ -1,14 +1,15 @@
 <template>
 	<div class="inputForm">
 
-		<input type="text" id="fname" name="fname" class="form_d" placeholder="Name Surname">
+		<input type="text" id="fname" name="fname" class="form_d" :placeholder="text">
 
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'InputForm'
+		name: 'InputForm',
+		props: ['text']
 	}
 </script>
 

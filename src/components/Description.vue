@@ -29,6 +29,10 @@
 
 <style scoped lang="scss">
 
+	p {
+		font-size: 20px;
+	}
+
 	ul {
 		list-style-type: "👍🏻";
 		padding-left: 30px;

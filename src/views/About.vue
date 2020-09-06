@@ -9,11 +9,7 @@
 	</div>
 </template>
 
-<style>
-	.link {
-		text-decoration: none;
-		font-size: 15px;
-	}
+<style scoped>
 
 	.h1 {
 		padding-top: 100px;

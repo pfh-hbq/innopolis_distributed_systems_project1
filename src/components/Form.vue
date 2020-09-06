@@ -1,10 +1,10 @@
 <template>
 	<div class="form">
 
-		<InputForm/>
-		<InputForm/>
-		<InputForm/>
-		<InputForm/>
+		<InputForm text="Name Surname"/>
+		<InputForm text="Mobile number"/>
+		<InputForm text="Mail"/>
+		<InputForm text="Promocode"/>
 		<SubmitBtn/>
 
 	</div>
