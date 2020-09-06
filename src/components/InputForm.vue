@@ -1,7 +1,7 @@
 <template>
 	<div class="inputForm">
 
-		<input type="text" id="fname" name="fname" class="form_d" :placeholder="text">
+		<input type="text" :id="form_id" :name="form_id" class="form_d" :placeholder="text">
 
 	</div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 	export default {
 		name: 'InputForm',
-		props: ['text']
+		props: ['text', 'form_id']
 	}
 </script>
 

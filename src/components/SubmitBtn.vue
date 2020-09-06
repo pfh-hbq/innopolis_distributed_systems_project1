@@ -1,14 +1,15 @@
 <template>
 	<div class="submitbtn">
 
-		<input type="submit" id="fname" name="fname" class="submit" value="Get new iPhone!">
+		<input type="submit" :id="submit_id" :name="submit_id" class="submit" value="Get new iPhone!">
 
 	</div>
 </template>
 
 <script>
 	export default {
-		name: 'InputForm'
+		name: 'InputForm',
+		props: ['submit_id']
 	}
 </script>
 
