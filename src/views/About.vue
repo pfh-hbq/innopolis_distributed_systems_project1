@@ -1,5 +1,32 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+	<div class="about">
+		<h1 class="h1">Developers:</h1>
+		<p>Zarubin Iurii | BS18-SE-01 Group</p>
+		<p>Abramov Ivan | BS18-SE-01 Group</p>
+
+		<router-link to="/" class="link">Go back</router-link>
+
+	</div>
 </template>
+
+<style>
+	.link {
+		text-decoration: none;
+		font-size: 15px;
+	}
+
+	.h1 {
+		padding-top: 100px;
+		font-size: 45px;
+		margin-bottom: 60px;
+	}
+
+	.about {
+		position: relative;
+		padding-left: 150px;
+	}
+
+	p {
+		font-size: 25px;
+	}
+</style>
