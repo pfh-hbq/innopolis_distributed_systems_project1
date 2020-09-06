@@ -28,4 +28,25 @@
 		padding: 0 15px;
 	}
 
+	@media only screen and (max-width: 1250px) {
+		.form_d {
+			width: 400px;
+			transition: width 0.5s;
+		}
+	}
+
+	@media only screen and (max-width: 1100px) {
+		.form_d {
+			width: 300px;
+			transition: width 0.5s;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		.form_d {
+			width: 80%;
+			transition: width 0.5s;
+		}
+	}
+
 </style>

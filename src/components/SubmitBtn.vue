@@ -51,6 +51,27 @@
 		cursor: default;
 	}
 
+	@media only screen and (max-width: 1250px) {
+		.submit {
+			width: 400px;
+			transition: width 0.5s;
+		}
+	}
+
+	@media only screen and (max-width: 1100px) {
+		.submit {
+			width: 300px;
+			transition: width 0.5s;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		.submit {
+			width: 80%;
+			transition: width 0.5s;
+		}
+	}
+
 	@keyframes colorchange {
 		0% {
 			background: gold;

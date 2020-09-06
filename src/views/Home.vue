@@ -27,6 +27,7 @@
 	.home {
 		position: relative;
 		padding-left: 150px;
+		padding-right: 150px;
 	}
 
 	.left_side {
@@ -43,6 +44,20 @@
 	.link {
 		text-decoration: none;
 		font-size: 15px;
+	}
+
+	@media only screen and (max-width: 768px) {
+		.left_side {
+			width: 100%;
+		}
+
+		.right_side {
+			display: none;
+		}
+
+		.home {
+			padding: 0 0 0 30px;
+		}
 	}
 
 </style>

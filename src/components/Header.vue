@@ -41,6 +41,25 @@
 
 	.header {
 		margin-bottom: 100px;
+		width: 500px;
+	}
+
+	@media only screen and (max-width: 1250px) {
+		.header {
+			width: 400px;
+		}
+	}
+
+	@media only screen and (max-width: 1100px) {
+		.header {
+			width: 300px;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		.header {
+			width: 80%;
+		}
 	}
 
 </style>

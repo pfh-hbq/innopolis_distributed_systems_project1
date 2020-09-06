@@ -3,8 +3,6 @@
 
 		<img src="../assets/img/iphone-11-pro_full_2.jpg" draggable="false" class="iphone_image">
 
-		<!--		<video autoplay loop src="../assets/video/bg_iphone_wo_sound.mp4" id="video_bg" type="video/mp4"></video>-->
-
 	</div>
 </template>
 
@@ -14,7 +12,6 @@
 	}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
 	.iphone_image {
@@ -22,11 +19,24 @@
 		position: absolute;
 		top: 0;
 		right: 150px;
+		transition: width .2s, right ,2s;
+	}
+
+	@media only screen and (max-width: 1440px) {
+		.iphone_image {
+			width: 500px;
+			right: 50px;
+			transition: width .2s, right ,2s;
+		}
+	}
+
+	@media only screen and (max-width: 1150px) {
+		.iphone_image {
+			width: 500px;
+			right: 0px;
+			transition: width .2s, right ,2s;
+		}
 	}
 
 
-	/*#video_bg {*/
-	/*	background: red;*/
-	/*	z-index: 10;*/
-	/*}*/
 </style>
