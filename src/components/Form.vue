@@ -5,7 +5,7 @@
 		<InputForm form_id="phone" text="Mobile number"/>
 		<InputForm form_id="mail" text="Mail"/>
 		<InputForm form_id="f_mail" text="Friends mail"/>
-		<SubmitBtn submit_id="submitbtn"/>
+		<SubmitBtn submit_id="submitbtn" value="Get new iPhone!"/>
 
 	</div>
 </template>
