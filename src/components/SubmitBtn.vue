@@ -17,7 +17,6 @@
 				isClicked: false
 			}
 		}
-
 	}
 </script>
 

@@ -5,7 +5,10 @@
 
 		<p>Fill the form bellow:</p>
 
-		<Form/>
+		<!--		<form action="https://vuejs.org/" method="post" @submit.prevent="submit">-->
+		<form action="https://vuejs.org/" method="post">
+			<Form/>
+		</form>
 
 		<Description/>
 
@@ -16,12 +19,24 @@
 
 	import Form from "./Form";
 	import Description from '@/components/Description'
+	import {IRoute as axios} from "express-serve-static-core";
 
 	export default {
 		name: 'Header',
 		components: {
 			Form, Description
-		}
+		},
+		// methods: {
+		// 	submit() {
+		// 		axios.post('https://vuejs.org/', {name: this.name})
+		// 			.then(res => {
+		// 				// do something with res
+		// 			})
+		// 			.catch(err => {
+		// 				// catch error
+		// 			})
+		// 	}
+		// }
 	}
 </script>
 
