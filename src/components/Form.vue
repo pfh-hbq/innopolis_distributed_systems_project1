@@ -8,22 +8,12 @@
 
     <button class="submit" @click="fireSubmit" v-bind:class="{'anim': isClicked}">{{ value }}</button>
 
-    <!--    temporary paragraph-->
-    <p style="color: red">name: {{ name_surname }} <br> phone: {{ phone }} <br> mail: {{ mail }} <br> fmail
-      {{ friend_mail }}</p>
+    <p class="withus_h">Already with us {{ userCounter }} people:</p>
 
+    <p class="withus_p" v-for="(user, idx) in users"> {{ idx + 1 }}. {{ user.name_surname }} <span
+        v-if="countUsers(idx + 1)"></span></p>
 
-    start
-
-<!--    should display each user in users array-->
-    <p v-for="user in users"> {{user}} </p>
-
-<!--    should display array itself-->
-    <p>{{users}}</p>
-
-
-    end
-
+    <br>
 
   </div>
 </template>
@@ -46,16 +36,29 @@ export default {
       phone: '',
       mail: '',
       friend_mail: '',
-      users: []
+      users: [],
+      userCounter: 0,
+      canRegister: true
     }
   },
-  firestore () {
-    return {
-      users: db.collection('users')
-    }
+  mounted() {
+    db.collection('users').onSnapshot(snapshot => {
+      snapshot.forEach(user => {
+        this.users.push(user.data());
+      })
+    });
   },
   methods: {
-    // Gets the checkbox information from the child component
+    countUsers(index) {
+      this.userCounter = index;
+
+      if (index >= 20) {
+        this.canRegister = false
+      }
+
+      return true;
+    },
+
     formValue(value) {
       this.name_surname = value;
     },
@@ -75,30 +78,39 @@ export default {
       let email = this.mail;
       let friend_mail = this.friend_mail;
 
-      // check if let is NULL
-
       if (name_surname === '' || phone === '' || email === '' || friend_mail === '') {
         alert("You have not completed all the fields!");
         return;
       }
 
-      db.collection('users').add({name_surname, phone, email, friend_mail});
+      if (!this.canRegister) {
+        alert("Only 20 people can register!");
+        return;
+      }
 
-      // just for development
-      alert(this.name_surname);
-      // console.log(this.name_surname);
+      db.collection('users').add({name_surname, phone, email, friend_mail});
 
       // animation of button
       this.isClicked = true;
-      this.value = 'You will get it!'
+      this.value = 'You will get it!';
+
+      this.users = [];
     }
   }
-
 }
 </script>
 
 
 <style scoped lang="scss">
+
+.withus_h {
+  font-size: 20px;
+}
+
+.withus_p {
+  margin-left: 15px;
+}
+
 
 .submit {
   background: white;

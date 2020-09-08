@@ -10,9 +10,10 @@ import 'firebase/firestore'
 
 // enter ID and URL here
 firebase.initializeApp({
-	projectId: 'ID',
-	databaseURL: 'URL'
+    projectId: 'ID',
+    databaseURL: 'URL'
 })
+
 
 export const db = firebase.firestore()
 
@@ -25,7 +26,7 @@ Vue.mixin(titleMixin)
 Vue.config.productionTip = false
 
 new Vue({
-	router,
-	store,
-	render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')
