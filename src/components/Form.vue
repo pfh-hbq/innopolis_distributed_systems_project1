@@ -8,7 +8,7 @@
     <InputForm @formGetValueChild="formValueFriendMail" form_id="friend_mail" text="Friends mail"/>
     <!--    <SubmitBtn submit_id="submitbtn" value="Get new iPhone!" @name_surname="name_surname" @phone="phone" @mail="mail" @friend_mail="friend_mail"/>-->
 
-    <button class="submit" @click="submit" v-bind:class="{'anim': isClicked}">{{ value }}</button>
+    <button class="submit" @click="fireSubmit" v-bind:class="{'anim': isClicked}">{{ value }}</button>
 
     <!--    temporary paragraph-->
     <p style="color: red">name: {{ name_surname }} <br> phone: {{ phone }} <br> mail: {{ mail }} <br> fmail
@@ -21,6 +21,7 @@
 
 import InputForm from "./InputForm";
 import axios from "axios"
+import {db} from "@/main";
 
 export default {
   name: 'Form',
@@ -51,21 +52,21 @@ export default {
     formValueFriendMail(value) {
       this.friend_mail = value;
     },
-    submit() {
 
-      // post request
-      axios.post('postgres://lqhemylrwnsrrd:42dbf849a9c962f1f185577cfe6da2bce64b839b0adbc8c6bd143ab5178c3f5c@ec2-54-172-173-58.compute-1.amazonaws.com:5432/d986irerdmkf6', {
-        name_surname: this.name_surname,
-        phone: this.phone,
-        mail: this.mail,
-        friend_mail: this.friend_mail
-      })
-          .then((response) => {
-            console.log(response);
-          }, (error) => {
-            console.log(error);
-          });
+    fireSubmit() {
+      let name_surname = this.name_surname;
+      let phone = this.phone;
+      let email = this.mail;
+      let friend_mail = this.friend_mail;
 
+      // check if let is NULL
+
+      if (name_surname === '' || phone === '' || email === '' || friend_mail === '') {
+        alert("You have not completed all the fields!");
+        return;
+      }
+
+      db.collection('users').add({name_surname, phone, email, friend_mail});
 
       // just for development
       alert(this.name_surname);
@@ -75,6 +76,7 @@ export default {
       // animation of button
       this.isClicked = true;
       this.value = 'You will get it!'
+
     }
   }
 
@@ -110,6 +112,7 @@ export default {
   animation: colorchange 1s linear infinite;
   color: white;
   cursor: default;
+  pointer-events: none;
 }
 
 @media only screen and (max-width: 1250px) {

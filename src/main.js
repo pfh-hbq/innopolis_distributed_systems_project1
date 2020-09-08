@@ -3,6 +3,20 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import VueFire from 'vuefire'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+
+// Vue.use(VueFire)
+
+firebase.initializeApp({
+	projectId: 'ID',
+	databaseURL: 'URL'
+})
+
+export const db = firebase.firestore()
+
+
 import titleMixin from './store/titleMixin'
 
 Vue.mixin(titleMixin)
