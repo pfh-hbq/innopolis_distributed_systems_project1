@@ -1,9 +1,12 @@
 <template>
 	<div class="submitbtn">
 
-		<input type="submit" :id="submit_id" :name="submit_id" class="submit" :value="value"
-					 v-on:click="isClicked = true; value = 'You will get it!'"
-					 v-bind:class="{'anim': isClicked}">
+<!--		<input type="submit" :id="submit_id" :name="submit_id" class="submit" :value="value"-->
+<!--					 v-on:click="isClicked = true; value = 'You will get it!'; aler"-->
+<!--					 v-bind:class="{'anim': isClicked}">-->
+
+    <button class="submit" @click="submit" v-bind:class="{'anim': isClicked}" >{{value}}</button>
+
 
 	</div>
 </template>
@@ -11,12 +14,44 @@
 <script>
 	export default {
 		name: 'InputForm',
-		props: ['submit_id', 'value'],
+		// props: ['submit_id', 'value', 'name_surname', 'phone', 'mail', 'friend_mail'],
+    props: {
+      submit_id: String,
+      value: String,
+      name_surname: {
+        type: String,
+        required: true
+      },
+      phone: Object,
+      mail: Object,
+      friend_mail: Object
+    },
 		data: function () {
 			return {
 				isClicked: false
 			}
-		}
+		},
+    methods: {
+      submit() {
+        // axios.post('ec2-54-172-173-58.compute-1.amazonaws.com', {
+        //   name_surname: this.name_surname,
+        //   phone: this.phone,
+        //   mail: this.mail,
+        //   friend_mail: this.friend_mail
+        // })
+        //     .then((response) => {
+        //       console.log(response);
+        //     }, (error) => {
+        //       console.log(error);
+        //     });
+
+
+        alert(this.name_surname);
+        console.log(this.name_surname);
+        this.isClicked = true;
+        this.value = 'You will get it!'
+      }
+    }
 	}
 </script>
 
