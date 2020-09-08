@@ -14,13 +14,31 @@
     <p style="color: red">name: {{ name_surname }} <br> phone: {{ phone }} <br> mail: {{ mail }} <br> fmail
       {{ friend_mail }}</p>
 
+
+    start
+
+<!--    should display each user in users array-->
+    <p v-for="user in users"> {{user}} </p>
+
+<!--    should display array itself-->
+    <p>{{users}}</p>
+
+
+
+<!--    -->
+<!--    <ul>-->
+<!--      <li v-for="user in users"> {{user.name_surname}} </li>-->
+<!--    </ul>-->
+
+    end
+
+
   </div>
 </template>
 
 <script>
 
 import InputForm from "./InputForm";
-import axios from "axios"
 import {db} from "@/main";
 
 export default {
@@ -35,7 +53,13 @@ export default {
       name_surname: '',
       phone: '',
       mail: '',
-      friend_mail: ''
+      friend_mail: '',
+      users: []
+    }
+  },
+  firestore () {
+    return {
+      users: db.collection('users')
     }
   },
   methods: {
@@ -72,11 +96,9 @@ export default {
       alert(this.name_surname);
       // console.log(this.name_surname);
 
-
       // animation of button
       this.isClicked = true;
       this.value = 'You will get it!'
-
     }
   }
 
@@ -85,7 +107,6 @@ export default {
 
 
 <style scoped lang="scss">
-
 
 .submit {
   background: white;

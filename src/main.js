@@ -7,8 +7,8 @@ import VueFire from 'vuefire'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
-// Vue.use(VueFire)
 
+// enter ID and URL here
 firebase.initializeApp({
 	projectId: 'ID',
 	databaseURL: 'URL'
