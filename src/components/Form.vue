@@ -1,12 +1,10 @@
 <template>
   <div class="form">
 
-    <!--    <form action="" method="post">-->
     <InputForm @formGetValueChild="formValue" form_id="name_surname" text="Name Surname"/>
     <InputForm @formGetValueChild="formValuePhone" form_id="phone" text="Mobile number"/>
     <InputForm @formGetValueChild="formValueMail" form_id="mail" text="Mail"/>
     <InputForm @formGetValueChild="formValueFriendMail" form_id="friend_mail" text="Friends mail"/>
-    <!--    <SubmitBtn submit_id="submitbtn" value="Get new iPhone!" @name_surname="name_surname" @phone="phone" @mail="mail" @friend_mail="friend_mail"/>-->
 
     <button class="submit" @click="fireSubmit" v-bind:class="{'anim': isClicked}">{{ value }}</button>
 
@@ -23,12 +21,6 @@
 <!--    should display array itself-->
     <p>{{users}}</p>
 
-
-
-<!--    -->
-<!--    <ul>-->
-<!--      <li v-for="user in users"> {{user.name_surname}} </li>-->
-<!--    </ul>-->
 
     end
 
