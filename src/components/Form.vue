@@ -41,11 +41,13 @@ export default {
       canRegister: true
     }
   },
+
   mounted() {
     db.collection('users').onSnapshot(snapshot => {
-      snapshot.forEach(user => {
-        this.users.push(user.data());
-      })
+      this.users = [],
+          snapshot.forEach(user => {
+            this.users.push(user.data());
+          })
     });
   },
   methods: {
