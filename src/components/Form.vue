@@ -8,10 +8,12 @@
 
     <button class="submit" @click="fireSubmit" v-bind:class="{'anim': isClicked}">{{ value }}</button>
 
-    <p class="withus_h">Already with us {{ userCounter }} people:</p>
+    <p class="withus_h">Already with us:</p>
 
-    <p class="withus_p" v-for="(user, idx) in users"> {{ idx + 1 }}. {{ user.name_surname }} <span
-        v-if="countUsers(idx + 1)"></span></p>
+    <p class="withus_p" v-for="(user, idx) in users">
+      {{ idx + 1 }}. {{ user.name_surname }} {{countUsers(idx + 1)}}
+<!--      <span v-show="countUsers(idx + 1)"></span>-->
+    </p>
 
     <br>
 
@@ -52,13 +54,12 @@ export default {
   },
   methods: {
     countUsers(index) {
-      this.userCounter = index;
+      // this.userCounter = index;
 
       if (index >= 20) {
-        this.canRegister = false
+        this.canRegister = false;
       }
 
-      return true;
     },
 
     formValue(value) {
